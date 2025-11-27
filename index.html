@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caza a los Monstruos 👾</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!--  Registro / Inicio de sesión -->
+  <div class="container" id="authContainer">
+    <h1> Caza a los Monstruos</h1>
+    <p>Regístrate o inicia sesión para jugar</p>
+
+    <div id="registerForm">
+      <h2>Crear usuario</h2>
+      <input type="text" id="newUser" placeholder="Usuario">
+      <input type="password" id="newPass" placeholder="Contraseña">
+      <button onclick="registrarUsuario()">Registrar</button>
+    </div>
+
+    <div id="loginForm">
+      <h2>Iniciar sesión</h2>
+      <input type="text" id="loginUser" placeholder="Usuario">
+      <input type="password" id="loginPass" placeholder="Contraseña">
+      <button onclick="iniciarSesion()">Entrar</button>
+    </div>
+
+    <!--  Tabla de clasificación -->
+    <hr>
+    <button class="verUsuariosBtn" onclick="mostrarRanking()"> Ver Ranking</button>
+
+    <table id="tablaRanking" class="tabla-ranking hidden">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Usuario</th>
+          <th>Mejor Puntaje</th>
+        </tr>
+      </thead>
+      <tbody id="rankingBody"></tbody>
+    </table>
+  </div>
+
+  <!--  Juego -->
+  <div class="hidden" id="gameContainer">
+    <div class="game-header">
+      <h1>Bienvenido, <span id="userName"></span> </h1>
+      <p>Puntos: <span id="score">0</span> | Tiempo: <span id="timer">30</span>s</p>
+      <button class="logout" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+
+    <div id="gameArea"></div>
+
+    <div class="hidden" id="gameOver">
+      <h2> ¡Fin del juego!</h2>
+      <p>Tu puntuación: <span id="finalScore"></span></p>
+      <button onclick="reiniciarJuego()">Jugar de nuevo </button>
+      <button onclick="mostrarRanking()"> Ver Ranking</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
